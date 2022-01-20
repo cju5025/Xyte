@@ -41,5 +41,11 @@ public:
     AudioProcessorValueTreeState apvts {*this, nullptr, "Parameters", createParameterLayout()};
 
 private:
+    
+    using Filter = dsp::IIR::Filter<float>;
+    using MonoChain = dsp::ProcessorChain<Filter, Filter, Filter>;
+    
+    MonoChain leftChain, rightChain;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (XyteAudioProcessor)
 };
