@@ -159,6 +159,59 @@ void XyteAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 
 }
 
+AudioProcessorValueTreeState::ParameterLayout
+    XyteAudioProcessor::createParameterLayout()
+{
+        AudioProcessorValueTreeState::ParameterLayout layout;
+        
+        layout.add(std::make_unique<AudioParameterFloat>("Low Peak Freq",
+                                                         "Low Peak Freq",
+                                                         NormalisableRange<float>(20.0f, 300.0f, 1.0f, 1.0f),
+                                                         150.0f));
+        
+        layout.add(std::make_unique<AudioParameterFloat>("Low Peak Gain",
+                                                         "Low Peak Gain",
+                                                         NormalisableRange<float>(-24.0f, 24.0f, 0.5f, 1.0f),
+                                                         0.0f));
+        
+        layout.add(std::make_unique<AudioParameterFloat>("Low Peak Quality",
+                                                         "Low Peak Quality",
+                                                         NormalisableRange<float>(0.1f, 10.0f, 0.05f, 1.0f),
+                                                         1.0f));
+        
+        layout.add(std::make_unique<AudioParameterFloat>("Mid Peak Freq",
+                                                         "Mid Peak Freq",
+                                                         NormalisableRange<float>(300.0f, 1500.0f, 1.0f, 1.0f),
+                                                         500.0f));
+        
+        layout.add(std::make_unique<AudioParameterFloat>("Mid Peak Gain",
+                                                         "Mid Peak Gain",
+                                                         NormalisableRange<float>(-24.0f, 24.0f, 0.5f, 1.0f),
+                                                         0.0f));
+        
+        layout.add(std::make_unique<AudioParameterFloat>("Mid Peak Quality",
+                                                         "Mid Peak Quality",
+                                                         NormalisableRange<float>(0.1f, 10.0f, 0.05f, 1.0f),
+                                                         1.0f));
+        
+        layout.add(std::make_unique<AudioParameterFloat>("High Peak Freq",
+                                                         "High Peak Freq",
+                                                         NormalisableRange<float>(1500.0f, 20000.0f, 1.0f, 1.0f),
+                                                         2000.0f));
+        
+        layout.add(std::make_unique<AudioParameterFloat>("High Peak Gain",
+                                                         "High Peak Gain",
+                                                         NormalisableRange<float>(-24.0f, 24.0f, 0.5f, 1.0f),
+                                                         0.0f));
+        
+        layout.add(std::make_unique<AudioParameterFloat>("High Peak Quality",
+                                                         "High Peak Quality",
+                                                         NormalisableRange<float>(0.1f, 10.0f, 0.05f, 1.0f),
+                                                         1.0f));
+        
+        return layout;
+}
+
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new XyteAudioProcessor();
