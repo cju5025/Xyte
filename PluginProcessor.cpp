@@ -92,6 +92,23 @@ void XyteAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
     
     leftChain.prepare(spec);
     rightChain.prepare(spec);
+    
+    auto chainSettings = getChainSettings(apvts);
+    
+    auto lowPeakCoefficients = dsp::IIR::Coefficients<float>::makePeakFilter(sampleRate,
+                                                                             chainSettings.lowPeakFreq,
+                                                                             chainSettings.lowPeakQuality,
+                                                                             Decibels::decibelsToGain(chainSettings.lowPeakGainInDecibels));
+    
+    auto midPeakCoefficients = dsp::IIR::Coefficients<float>::makePeakFilter(sampleRate,
+                                                                             chainSettings.midPeakFreq,
+                                                                             chainSettings.midPeakQuality,
+                                                                             Decibels::decibelsToGain(chainSettings.midPeakGainInDecibels));
+    
+    auto highPeakCoefficients = dsp::IIR::Coefficients<float>::makePeakFilter(sampleRate,
+                                                                             chainSettings.highPeakFreq,
+                                                                             chainSettings.highPeakQuality,
+                                                                             Decibels::decibelsToGain(chainSettings.highPeakGainInDecibels));
 }
 
 void XyteAudioProcessor::releaseResources()

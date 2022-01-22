@@ -4,9 +4,9 @@
 
 struct ChainSettings
 {
-    float lowPeakFreq { 0 }, lowPeakGainInDecibels { 0 }, lowPeakQuality { 0 },
-    float midPeakFreq { 0 }, midPeakGainInDecibels { 0 }, midPeakQuality { 0 },
-    float highPeakFreq { 0 }, highPeakGainInDecibels { 0 }, highPeakQuality { 0 },
+    float lowPeakFreq { 0 }, lowPeakGainInDecibels { 0 }, lowPeakQuality { 0 };
+    float midPeakFreq { 0 }, midPeakGainInDecibels { 0 }, midPeakQuality { 0 };
+    float highPeakFreq { 0 }, highPeakGainInDecibels { 0 }, highPeakQuality { 0 };
 };
 
 ChainSettings getChainSettings(AudioProcessorValueTreeState& apvts);
