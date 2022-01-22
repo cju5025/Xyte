@@ -109,6 +109,13 @@ void XyteAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
                                                                              chainSettings.highPeakFreq,
                                                                              chainSettings.highPeakQuality,
                                                                              Decibels::decibelsToGain(chainSettings.highPeakGainInDecibels));
+    
+    *leftChain.get<ChainPositions::LowPeak>().coefficients = *lowPeakCoefficients;
+    *rightChain.get<ChainPositions::LowPeak>().coefficients = *lowPeakCoefficients;
+    *leftChain.get<ChainPositions::MidPeak>().coefficients = *midPeakCoefficients;
+    *rightChain.get<ChainPositions::MidPeak>().coefficients = *midPeakCoefficients;
+    *leftChain.get<ChainPositions::HighPeak>().coefficients = *highPeakCoefficients;
+    *rightChain.get<ChainPositions::HighPeak>().coefficients = *highPeakCoefficients;
 }
 
 void XyteAudioProcessor::releaseResources()
@@ -151,6 +158,30 @@ void XyteAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::M
 
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
+    
+    auto chainSettings = getChainSettings(apvts);
+    
+    auto lowPeakCoefficients = dsp::IIR::Coefficients<float>::makePeakFilter(getSampleRate(),
+                                                                             chainSettings.lowPeakFreq,
+                                                                             chainSettings.lowPeakQuality,
+                                                                             Decibels::decibelsToGain(chainSettings.lowPeakGainInDecibels));
+    
+    auto midPeakCoefficients = dsp::IIR::Coefficients<float>::makePeakFilter(getSampleRate(),
+                                                                             chainSettings.midPeakFreq,
+                                                                             chainSettings.midPeakQuality,
+                                                                             Decibels::decibelsToGain(chainSettings.midPeakGainInDecibels));
+    
+    auto highPeakCoefficients = dsp::IIR::Coefficients<float>::makePeakFilter(getSampleRate(),
+                                                                             chainSettings.highPeakFreq,
+                                                                             chainSettings.highPeakQuality,
+                                                                             Decibels::decibelsToGain(chainSettings.highPeakGainInDecibels));
+    
+    *leftChain.get<ChainPositions::LowPeak>().coefficients = *lowPeakCoefficients;
+    *rightChain.get<ChainPositions::LowPeak>().coefficients = *lowPeakCoefficients;
+    *leftChain.get<ChainPositions::MidPeak>().coefficients = *midPeakCoefficients;
+    *rightChain.get<ChainPositions::MidPeak>().coefficients = *midPeakCoefficients;
+    *leftChain.get<ChainPositions::HighPeak>().coefficients = *highPeakCoefficients;
+    *rightChain.get<ChainPositions::HighPeak>().coefficients = *highPeakCoefficients;
 
     dsp::AudioBlock<float> block(buffer);
     
