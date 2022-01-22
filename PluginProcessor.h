@@ -47,7 +47,7 @@ public:
     
     static AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
     
-    AudioProcessorValueTreeState apvts {*this, nullptr, "Parameters", createParameterLayout()};
+    AudioProcessorValueTreeState apvts { *this, nullptr, "Parameters", createParameterLayout() };
 
 private:
     
@@ -63,6 +63,8 @@ private:
         MidPeak,
         HighPeak
     };
+    
+    void updatePeakFilters ( const ChainSettings& chainSettings );
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (XyteAudioProcessor)
 };
