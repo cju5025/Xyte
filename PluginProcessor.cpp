@@ -169,6 +169,23 @@ void XyteAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 
 }
 
+ChainSettings getChainSettings(AudioProcessorValueTreeState& apvts)
+{
+    ChainSettings settings;
+    
+    settings.lowPeakFreq = apvts.getRawParameterValue("Low Peak Freq")->load();
+    settings.lowPeakQuality = apvts.getRawParameterValue("Low Peak Quality")->load();
+    settings.lowPeakGainInDecibels = apvts.getRawParameterValue("Low Peak Gain")->load();
+    settings.midPeakFreq = apvts.getRawParameterValue("Mid Peak Freq")->load();
+    settings.midPeakQuality = apvts.getRawParameterValue("Mid Peak Quality")->load();
+    settings.midPeakGainInDecibels = apvts.getRawParameterValue("Mid Peak Gain")->load();
+    settings.highPeakFreq = apvts.getRawParameterValue("High Peak Freq")->load();
+    settings.highPeakQuality = apvts.getRawParameterValue("High Peak Quality")->load();
+    settings.highPeakGainInDecibels = apvts.getRawParameterValue("High Peak Gain")->load();
+    
+    return settings;
+}
+
 AudioProcessorValueTreeState::ParameterLayout
     XyteAudioProcessor::createParameterLayout()
 {
