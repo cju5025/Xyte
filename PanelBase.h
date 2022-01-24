@@ -3,6 +3,7 @@
 #include "JuceHeader.h"
 #include "PluginProcessor.h"
 #include "InterfaceDefines.h"
+#include "GUIHelpers.h"
 
 class PanelBase
 :   public Component
