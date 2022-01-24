@@ -7,10 +7,10 @@ class TopPanel
 {
 public:
     
-    TopPanel( XyteAudioProcessor* inProcessor );
+    TopPanel(XyteAudioProcessor* inProcessor);
     ~TopPanel();
     
-    void paint( Graphics& g ) override;
+    void paint(Graphics& g) override;
     
 private:
     

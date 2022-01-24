@@ -1,5 +1,5 @@
 #include "FXPanel.h"
-#include "GuiHelpers.h"
+#include "GUIHelpers.h"
 
 FXPanel::FXPanel(XyteAudioProcessor* processor)
 :   PanelBase(processor)

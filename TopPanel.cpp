@@ -1,7 +1,7 @@
 #include "TopPanel.h"
 
-TopPanel::TopPanel( XyteAudioProcessor* processor )
-:   PanelBase( processor )
+TopPanel::TopPanel(XyteAudioProcessor* processor)
+:   PanelBase(processor)
 {
     setSize(TOP_PANEL_WIDTH, TOP_PANEL_HEIGHT);
 }
