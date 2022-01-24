@@ -98,7 +98,7 @@ void XyteAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
     updatePeakFilters( chainSettings );
 }
 
-void XyteAudioProcessor::releaseResources()
+void XyteAudioProcessor::releaseResources() 
 {
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
