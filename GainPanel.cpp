@@ -11,17 +11,17 @@ GainPanel::~GainPanel()
     
 }
 
-void GainPanel::paint( Graphics& g )
+void GainPanel::paint(Graphics& g)
 {
-    PanelBase::paint( g );
+    PanelBase::paint(g);
     
-    if ( mSlider )
+    if (mSlider)
     {
-        paintComponentLabel( g, mSlider.get() );
+        paintComponentLabel(g, mSlider.get());
     }
 }
     
-void GainPanel::setParameterID( int inParameterID )
+void GainPanel::setParameterID(int inParameterID)
 {
 //    mSlider = std::make_unique<ParameterSlider>( mProcessor->parameters, ParameterID[ inParameterID ] );
 //    

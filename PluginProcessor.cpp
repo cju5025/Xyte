@@ -194,7 +194,7 @@ ChainSettings getChainSettings(AudioProcessorValueTreeState& apvts)
     return settings;
 }
 
-void XyteAudioProcessor::updatePeakFilters( const ChainSettings& chainSettings )
+void XyteAudioProcessor::updatePeakFilters(const ChainSettings& chainSettings)
 {
     auto lowPeakCoefficients = dsp::IIR::Coefficients<float>::makePeakFilter(getSampleRate(),
                                                                              chainSettings.lowPeakFreq,

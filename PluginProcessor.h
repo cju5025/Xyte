@@ -64,7 +64,7 @@ private:
         HighPeak
     };
     
-    void updatePeakFilters ( const ChainSettings& chainSettings );
+    void updatePeakFilters (const ChainSettings& chainSettings);
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (XyteAudioProcessor)
 };

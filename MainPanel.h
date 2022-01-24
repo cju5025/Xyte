@@ -9,7 +9,7 @@ class MainPanel
 :   public PanelBase
 {
 public:
-    MainPanel( XyteAudioProcessor* processor );
+    MainPanel(XyteAudioProcessor* processor);
     ~MainPanel();
     
 private:

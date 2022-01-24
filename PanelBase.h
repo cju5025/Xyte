@@ -10,10 +10,10 @@ class PanelBase
 {
 public:
   
-    PanelBase( XyteAudioProcessor* processor );
+    PanelBase(XyteAudioProcessor* processor);
     ~PanelBase();
     
-    void paint ( Graphics& g ) override;
+    void paint (Graphics& g) override;
     
 private:
     
