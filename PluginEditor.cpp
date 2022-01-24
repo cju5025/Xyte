@@ -4,7 +4,11 @@
 XyteAudioProcessorEditor::XyteAudioProcessorEditor (XyteAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
-    setSize (400, 300);
+    setSize (MAIN_PANEL_WIDTH, MAIN_PANEL_HEIGHT);
+    
+    mMainPanel = std::make_unique<MainPanel>(&audioProcessor);
+    addAndMakeVisible(mMainPanel.get());
+    
 }
 
 XyteAudioProcessorEditor::~XyteAudioProcessorEditor()
