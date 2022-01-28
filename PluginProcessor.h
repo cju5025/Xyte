@@ -47,7 +47,7 @@ public:
     
     static AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
     
-    AudioProcessorValueTreeState apvts { *this, nullptr, "Parameters", createParameterLayout() };
+    AudioProcessorValueTreeState parameters;
 
 private:
     

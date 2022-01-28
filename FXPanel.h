@@ -16,9 +16,7 @@ public:
     
 private:
     
-//    std::unique_ptr<ParameterSlider> mDriveSlider;
-//    std::unique_ptr<ParameterSlider> mRangeSlider;
-//    std::unique_ptr<ParameterSlider> mBlendSlider;
-//    std::unique_ptr<ParameterSlider> mVolumeSlider;
-    
+    std::unique_ptr<ParameterSlider> mLowBandFreqSlider;
+    std::unique_ptr<ParameterSlider> mLowBandGainSlider;
+    std::unique_ptr<ParameterSlider> mLowBandQualitySlider;
 };
