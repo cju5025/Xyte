@@ -15,8 +15,10 @@ public:
     
     void paint (Graphics& g) override;
     
-private:
-    
     XyteAudioProcessor* mProcessor;
+
+    
+private:
+
     
 };
