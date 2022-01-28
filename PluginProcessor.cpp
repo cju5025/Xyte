@@ -11,7 +11,8 @@ XyteAudioProcessor::XyteAudioProcessor()
                       #endif
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
-                       )
+                       ),
+                        parameters(*this, nullptr, Identifier("Xyte"), createParameterLayout())
 #endif
 {
 }
@@ -93,7 +94,7 @@ void XyteAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
     leftChain.prepare(spec);
     rightChain.prepare(spec);
     
-    auto chainSettings = getChainSettings(apvts);
+    auto chainSettings = getChainSettings(parameters);
     
     updatePeakFilters( chainSettings );
 }
@@ -139,7 +140,7 @@ void XyteAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::M
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
     
-    auto chainSettings = getChainSettings( apvts );
+    auto chainSettings = getChainSettings(parameters);
     
     updatePeakFilters( chainSettings );
 
