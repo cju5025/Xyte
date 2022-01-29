@@ -17,8 +17,6 @@ public:
     
     XyteAudioProcessor* mProcessor;
 
-    
 private:
 
-    
 };

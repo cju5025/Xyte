@@ -35,22 +35,19 @@ void FXPanel::addSliders()
 {
         const int slider_size = 60;
         int x = 125;
-        int y = (getHeight() * 0.5) - (slider_size * 0.5);
+        int y = (getHeight() * 0.5) - (slider_size);
     
         mLowBandFreqSlider = std::make_unique<ParameterSlider>(mProcessor->parameters, "Low Peak Freq");
         mLowBandFreqSlider->setBounds(x, y, slider_size, slider_size);
         addAndMakeVisible(*mLowBandFreqSlider);
-        x += slider_size * 2;
+        y += slider_size * 2;
+//        x += slider_size * 2;
     
-//        mRangeSlider = std::make_unique<ParameterSlider>(mProcessor->parameters, ParameterID[parameter_Range]);
-//        mRangeSlider->setBounds(x, y, slider_size, slider_size);
-//        addAndMakeVisible(*mRangeSlider);
-//        x += slider_size * 2;
-//
-//        mBlendSlider = std::make_unique<ParameterSlider>(mProcessor->parameters, ParameterID[parameter_Blend]);
-//        mBlendSlider->setBounds(x, y, slider_size, slider_size);
-//        addAndMakeVisible(*mBlendSlider);
-//        x += slider_size * 2;
+        mLowBandGainSlider = std::make_unique<ParameterSlider>(mProcessor->parameters, "Low Peak Gain");
+        mLowBandGainSlider->setBounds(x, y, slider_size, slider_size);
+        addAndMakeVisible(*mLowBandGainSlider);
+        y += slider_size * 2;
+    //        x += slider_size * 2;
     
 }
 
