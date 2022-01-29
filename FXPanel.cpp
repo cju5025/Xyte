@@ -64,7 +64,7 @@ void FXPanel::paint(Graphics& g)
 void FXPanel::addSliders()
 {
         const int slider_size = 45;
-        int x = 125;
+        int x = getWidth() / 3 - slider_size;
         int y = (getHeight() * 0.5) - (slider_size);
     
         mLowBandFreqSlider = std::make_unique<ParameterSlider>(mProcessor->parameters, "Low Peak Freq");
