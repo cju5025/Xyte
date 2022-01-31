@@ -30,7 +30,7 @@ public:
         g.setColour(Colours::black);
         g.fillEllipse(dialArea);
         
-        g.setColour(Colour(219, 158, 54));
+        g.setColour(Colour(242, 149, 3));
         
         Path dialTick;
         dialTick.addRectangle(-2.0f, -radius, 5.0f, radius * 0.75f);

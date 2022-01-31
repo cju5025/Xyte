@@ -13,7 +13,7 @@ PanelBase::~PanelBase()
 
 void PanelBase::paint(Graphics& g)
 {
-    g.setColour( Colour(67, 76, 80));
+    g.setColour(Colour(17, 46, 44));
     g.fillAll();
     
     g.setColour(Colours::black);

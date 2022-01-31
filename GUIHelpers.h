@@ -10,7 +10,7 @@ inline void paintComponentLabel(Graphics& g, Component* component)
     const int h = 20;
     const String label = component->getName();
     
-    g.setColour(Colour(219, 158, 54));
+    g.setColour(Colour(242, 149, 3));
     g.drawFittedText(label, x, y, w, h, Justification::centred, 1);
 }
 
